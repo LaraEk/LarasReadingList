@@ -19,6 +19,9 @@
   "homepage": "https://github.com/LaraEk/LarasReadingList#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.38.0"
   }
 }
