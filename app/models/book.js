@@ -36,7 +36,7 @@ var Book = sequelize.define("book", {
             type: Sequelize.STRING
         }
     },
-{ timestamps: false}
+{ timestamps: false }
 
 });
 
@@ -46,4 +46,3 @@ var Book = sequelize.define("book", {
 Book.sync();
 
 module.exports = Book;
-
