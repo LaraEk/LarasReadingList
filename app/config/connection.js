@@ -14,7 +14,7 @@ var Sequelize = require("sequelize");
 // ---------------------------------------
 // Using Sequelize, Create MySQL Connexion
 // ---------------------------------------
-var sequelize = new Sequelize("","","", {
+var sequelize = new Sequelize("booklist_db","root","", {
     host: "localhost",
     dialect: "mysql",
     pool: {
