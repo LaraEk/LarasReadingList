@@ -1,0 +1,20 @@
+{
+  "name": "readinglist",
+  "version": "1.0.0",
+  "description": "it's a list of readings",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaraEk/LarasReadingList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaraEk/LarasReadingList/issues"
+  },
+  "homepage": "https://github.com/LaraEk/LarasReadingList#readme"
+}
