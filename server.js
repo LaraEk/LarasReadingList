@@ -29,7 +29,7 @@ app.use(express.static("app/public"));
 // Requiring The Routes
 // --------------------
 require("./app/routes/apiroutes.js")(app);
-require("./app/routes/htmlroutes.js")(app);
+//require("./app/routes/htmlroutes.js")(app);
 
 // -------------------------------------------
 // App listening on PORT #[insert number here]

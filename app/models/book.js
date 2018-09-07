@@ -20,7 +20,10 @@ var Book = sequelize.define("book", {
         title: {
             type: Sequelize.STRING
         },
-        author: {
+        author_firstname: {
+            type: Sequelize.STRING
+        },
+        author_lastname: {
             type: Sequelize.STRING
         },
         genre: {
@@ -35,8 +38,7 @@ var Book = sequelize.define("book", {
         notes: {
             type: Sequelize.STRING
         }
-    },
-{ timestamps: false }
+}, { timestamps: false
 
 });
 
