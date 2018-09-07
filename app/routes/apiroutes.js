@@ -38,6 +38,22 @@ module.exports = function(app) {
     // -- IF that exists, THEN findAll ONLY WHERE TITLE: that book.
     // -- (Then display the results in JSON format :D )
 
+    // ----- GET ONLY BOOKS BY A CERTAIN AUTHOR
+    app.get("/api/author/:author_lastname", function(req, res) {
+        console.log("trying app.get");
+        if (req.params.author_lastname) {
+            Book.findAll({
+                where: {
+                    author_lastname: req.params.author_lastname
+                }
+            }).then(function(results){
+                res.json(results);
+                console.log("this is the result");
+            });
+        }
+    });
+
+
 
 
 
