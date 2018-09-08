@@ -40,7 +40,6 @@ module.exports = function(app) {
 
     // ----- GET ONLY BOOKS BY A CERTAIN AUTHOR
     app.get("/api/author/:author_lastname", function(req, res) {
-        console.log("trying app.get");
         if (req.params.author_lastname) {
             Book.findAll({
                 where: {
@@ -48,14 +47,43 @@ module.exports = function(app) {
                 }
             }).then(function(results){
                 res.json(results);
-                console.log("this is the result");
+            });
+        }
+    });
+
+    // ----- GET ONLY BOOKS IN A CERTAIN GENRE
+    app.get("/api/genre/:genre", function(req, res) {
+        if (req.params.genre) {
+            Book.findAll({
+                where: {
+                    genre: req.params.genre
+                }
+            }).then(function(results){
+                res.json(results);
+            });
+        }
+    });
+    
+
+    // ----- GET ONLY BOOKS BY MONTH READ
+    app.get("/api/month/:month_read", function(req, res) {
+        if (req.params.month) {
+            Book.findAll({
+                where: {
+                    month_read: req.params.month
+                }
+            }).then(function(results){
+                res.json(results);
             });
         }
     });
 
 
+    // ----- GET ONLY BOOKS BY A CERTAIN RATING OR HIGHER
 
 
+    // ----- GET ONLY BOOKS BY WHETHER OR NOT I'VE REREAD THEM
+    
 
 
 }
