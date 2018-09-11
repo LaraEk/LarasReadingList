@@ -106,7 +106,7 @@ module.exports = function(app) {
     });
 
     // ----- GET ONLY BOOKS BY WHETHER OR NOT I'VE REREAD THEM
-    app.get("/api/:reread", function(req, res) {
+    app.get("/api/reread/:yes", function(req, res) {
         Book.findAll({
             where: {
                 reread: {
@@ -117,9 +117,42 @@ module.exports = function(app) {
             res.json(results);
         });
     });
+
+    // -----  POST ROUTE FOR ADDING BOOKS
+    app.post("/api/addabook", function(req,res) {
+        Book.create({
+            title: req.body.title
+            author_firstname: req.body.author_firstname 
+            author_lastname: req.body.author_lastname
+            genre: req.body.genre
+            rating: req.body.rating
+            month_read: req.body.month_read
+            year_read: req.body.year_read
+            reread: req.body.reread
+            notes: req.body.notes
+        });
+    });
+    // -- Book is created by request.body from the User filling in these fields
+
+
+    // -----  POST ROUTE FOR UPDATING BOOKS
+    // (still need to figure out how I want to do this. I'll get back to it)
     
 
-    
+    // -----  POST ROUTE FOR DELETING BOOKS
+    app.post("/api/delete", function(req, res) {
+        Book.destroy({
+            where: {
+                id: req.body.id
+            }
+        });
+    });
+    // -- I do not anticipate ever using this and am going to make it very hard to find.
+
+}
+
+
+
 // -------------------------------------------------------------------------------------------------------
 // Because I Have Not Yet Incorporated Feminist And Diversity Ratings Yet, These Are Later Features To Add
 // -------------------------------------------------------------------------------------------------------
@@ -178,5 +211,3 @@ module.exports = function(app) {
     //        res.json(results);
     //    });
     // });
-
-}
