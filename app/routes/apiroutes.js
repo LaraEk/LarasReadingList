@@ -80,10 +80,103 @@ module.exports = function(app) {
 
 
     // ----- GET ONLY BOOKS BY A CERTAIN RATING OR HIGHER
+    app.get("/api/highrating/:highrated", function(req, res) {
+        Book.findAll({
+            where: {
+                rating: {
+                    $gte: 4
+                }
+            }
+        }).then(function(results){
+            res.json(results);
+        });
+    });
 
+    // ----- GET ONLY BOOKS BY A CERTAIN RATING OR LOWER
+    app.get("/api/lowrating/:lowrated", function(req, res) {
+       Book.findAll({
+           where: {
+               rating: {
+                   $lte: 2.9
+               }
+           }
+       }).then(function(results){
+           res.json(results);
+       });
+    });
 
     // ----- GET ONLY BOOKS BY WHETHER OR NOT I'VE REREAD THEM
+    app.get("/api/:reread", function(req, res) {
+        Book.findAll({
+            where: {
+                reread: {
+                    $not: false
+                }
+            }
+        }).then(function(results){
+            res.json(results);
+        });
+    });
     
 
+    
+// -------------------------------------------------------------------------------------------------------
+// Because I Have Not Yet Incorporated Feminist And Diversity Ratings Yet, These Are Later Features To Add
+// -------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
+// Need to figure out whether I want feminist, ethnic diversity, and lgbt+ diversity in three categories, two, or one
+// ------------------------------------------------------------------------------------------------------------------
+
+// // ----- GET ONLY BOOKS BY A CERTAIN FEMINIST RATING OR HIGHER
+    // app.get("/api/highfemrating/:highfemrated", function(req, res) {
+    //     Book.findAll({
+    //         where: {
+    //             fem_rating: {
+    //                 $gte: 4
+    //             }
+    //         }
+    //     }).then(function(results){
+    //         res.json(results);
+    //     });
+    // });
+
+    // // ----- GET ONLY BOOKS BY A CERTAIN FEMINIST RATING OR LOWER
+    // app.get("/api/lowfemrating/:lowfemrated", function(req, res) {
+    //    Book.findAll({
+    //        where: {
+    //            fem_rating: {
+    //                $lte: 2
+    //            }
+    //        }
+    //    }).then(function(results){
+    //        res.json(results);
+    //    });
+    // });
+
+    // // ----- GET ONLY BOOKS BY A CERTAIN DIVERSITY RATING OR HIGHER
+    // app.get("/api/highdivrating/:highdivrated", function(req, res) {
+    //     Book.findAll({
+    //         where: {
+    //             div_rating: {
+    //                 $gte: 4
+    //             }
+    //         }
+    //     }).then(function(results){
+    //         res.json(results);
+    //     });
+    // });
+
+    // // ----- GET ONLY BOOKS BY A CERTAIN DIVERSITY RATING OR LOWER
+    // app.get("/api/lowdivrating/:lowdivrated", function(req, res) {
+    //    Book.findAll({
+    //        where: {
+    //            div_rating: {
+    //                $lte: 2
+    //            }
+    //        }
+    //    }).then(function(results){
+    //        res.json(results);
+    //    });
+    // });
 
 }

@@ -138,3 +138,7 @@ VALUES ("Interstellar Pig", "William", "Sleator", "science fiction", "3.5", "Aug
 INSERT INTO books (title, author_firstname, author_lastname, genre, rating, month_read, year_read, reread, notes)
 VALUES ("The Knife of Never Letting Go", "Patrick", "Ness", "YA science fiction", "5", "September", "2018", "true", "very harsh, but very well written.");
 
+
+* you read this in august
+INSERT INTO books (title, author_firstname, author_lastname, genre, rating, month_read, year_read, reread, notes)
+VALUES ("Empire of the Ants", "William", "Sleator", "science fiction", "3.5", "August", "2018", "false", "n/a");
