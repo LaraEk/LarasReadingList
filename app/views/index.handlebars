@@ -1,8 +1,20 @@
+{{> nav}}
+
 <h1>Lara's Reading List</h1>
 <h2>I will Pretty This Up Once I've Got The Routes And DB Working</h2>
 
-{{> nav}}
 
-{{#each }}
+{{#each books}}
+
+    <h3>{{ this.title }}</h3>
+    <h4>Author: {{ this.author_firstname }} {{ this.author_lastname }}</h4>
+    <h5>Genre: {{ this.genre }}</h5>
+    <h5>Rating: {{ this.rating }}</h5>
+    <h5>When Read: {{ this.month_read }} {{ this.year_read }}</h5>
+    <h5>Is it a reread? {{ this.reread }}</h5>
+    <h5>Any Notes:</h5>
+    <p>{{ this.notes }}</p>
+
+{{/each}}
 
 {{> foot}}

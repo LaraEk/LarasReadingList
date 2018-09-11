@@ -121,14 +121,14 @@ module.exports = function(app) {
     // -----  POST ROUTE FOR ADDING BOOKS
     app.post("/api/addabook", function(req,res) {
         Book.create({
-            title: req.body.title
-            author_firstname: req.body.author_firstname 
-            author_lastname: req.body.author_lastname
-            genre: req.body.genre
-            rating: req.body.rating
-            month_read: req.body.month_read
-            year_read: req.body.year_read
-            reread: req.body.reread
+            title: req.body.title,
+            author_firstname: req.body.author_firstname,
+            author_lastname: req.body.author_lastname,
+            genre: req.body.genre,
+            rating: req.body.rating,
+            month_read: req.body.month_read,
+            year_read: req.body.year_read,
+            reread: req.body.reread,
             notes: req.body.notes
         });
     });
