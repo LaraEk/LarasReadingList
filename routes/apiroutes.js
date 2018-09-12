@@ -7,10 +7,24 @@
 // ------------
 var Book = require("../models/book.js");
 
+// --------------------
+// We Must Require Path
+// --------------------
+var path = require("path");
+
 // --------------------------
 // Here They Are: The Routes:
 // --------------------------
 module.exports = function(app) {
+
+    app.get("/", function(req, res){
+        Book.findAll({}).then(function(results){
+            console.log(results);
+            res.render("index", { books: results });
+        });
+    });
+    // "index" gets the handelbars
+    // hbsObject {results} gets ALL the hbrs data
 
     // ----- GET ALL BOOKS
     app.get("/api/all", function(req, res) {

@@ -23,17 +23,22 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // This Makes Sure That app/public Is What We Draw All Things From
 // And That All Things In app/public Can Be Drawn From -----------
 // ---------------------------------------------------------------
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
 // Now I Must Add Handlebars To Use Handlebars
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({defaultLayout: "main" }) );
+app.engine("handlebars", exphbs({ defaultLayout: "main" }) );
 app.set("view engine", "handlebars");
+
+
+require("./routes/apiroutes.js")(app);
+
+
 
 // --------------------
 // Requiring The Routes
 // --------------------
-require("./app/routes/apiroutes.js")(app);
+//require("./app/routes/apiroutes.js")(app);
 //require("./app/routes/htmlroutes.js")(app);
 
 // -------------------------------------------
